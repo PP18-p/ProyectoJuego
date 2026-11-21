@@ -27,9 +27,9 @@ python game_logic.py     (validación de la jugada y fin de la partida)
 | Archivo | Qué hace | Estado |
 |---|---|---|
 | `juego.py` | [Menú que se repite hasta «Salir» (parte de DF1)] | [Terminado / Iniciado] |
-| `game_logic.py` | [Validación de la jugada (DF2) y fin de la partida (DF3)] | [Terminado / Iniciado] |
-| `server.py` | [Comentario con lo que hará el servidor (Jugador 1)] | [Pendiente] |
-| `client.py` | [Comentario con lo que hará el cliente (Jugador 2)] | [Pendiente] |
+| `game_logic.py` | [Validación de la jugada (DF2) y fin de la partida (DF3)] | Iniciado |
+| `server.py` | # server.py · Servidor (Jugador 1) · RF-02 · Fase 4: creará la partida por TCP en 192.168.56.10:5000 | Pendiente |
+| `client.py` | # client.py · Cliente (Jugador 2) · RF-02 · Fase 4: se conectará al servidor en 192.168.56.10:5000 | Pendiente |
 | `diseno/` | Diagramas `.rap` de la Fase 2 | [Subido] |
 
 ## Del diseño al código
