@@ -1,5 +1,5 @@
-# DF2_validacion.rap: DF2: RF-06, RF-07, RF-09 y RF-04 y DF3 Fin de la partida RF-08, RF-11
-# game_logic.py . Space Waze
+# game_logic.py · Space Waze
+# DF2 Validación de la jugada (RF-04, RF-06, RF-07, RF-09) y DF3 Fin de la partida (RF-08, RF-11)
 
 # ---------- DF2: Validación de la jugada ----------
 
