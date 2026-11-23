@@ -1,9 +1,6 @@
-# ProyectoJuego
-Proyecto integrador primer semestre
+# Space Waze
 
-# [Space Waze]
-
-Proyecto integrador de primer nivel · Lógica de Programación · UIDE · Paralelo [C]
+Proyecto integrador de primer nivel · Lógica de Programación · UIDE · Paralelo C
 
 Juego por turnos para dos jugadores con modo local y, más adelante, modo multijugador cliente-servidor en red LAN.
 
@@ -26,43 +23,44 @@ python game_logic.py     (validación de la jugada y fin de la partida)
 
 | Archivo | Qué hace | Estado |
 |---|---|---|
-| `juego.py` | [Menú que se repite hasta «Salir» (parte de DF1)] | [Terminado / Iniciado] |
-| `game_logic.py` | [Validación de la jugada (DF2) y fin de la partida (DF3)] | Iniciado |
-| `server.py` | # server.py · Servidor (Jugador 1) · RF-02 · Fase 4: creará la partida por TCP en 192.168.56.10:5000 | Pendiente |
-| `client.py` | # client.py · Cliente (Jugador 2) · RF-02 · Fase 4: se conectará al servidor en 192.168.56.10:5000 | Pendiente |
-| `diseno/` | Diagramas `.rap` de la Fase 2 | [Subido] |
+| `juego.py` | Menú que se repite hasta «Salir» (parte de DF1) | En progreso |
+| `game_logic.py` | Validación de la jugada (DF2) y fin de la partida (DF3) | Terminado |
+| `server.py` | Servidor del Jugador 1 (TCP, puerto 5000), se programa en la Fase 4 | Pendiente |
+| `client.py` | Cliente del Jugador 2, se conecta al servidor, se programa en la Fase 4 | Pendiente |
+| `diseno/` | Diagramas `.rap` de la Fase 2 | Subido |
 
 ## Del diseño al código
 
 | Diagrama de la Fase 2 | Archivo y líneas | Qué cambió al traducirlo |
 |---|---|---|
-| DF1 Partida completa (solo el menú) | [`juego.py`, líneas …] | [...] |
-| DF2 Validación de la jugada | game_logic.py, líneas 1-40 | El Loop de RAPTOR (sale cuando entrada = 0) pasó a ser un while entrada != 0. Se agregó isdigit() para que letras o decimales no hagan caer el programa (validación por formato), porque input devuelve texto. La concatenación con + pasó a f-strings. |
-| DF3 Fin de la partida | `game_logic.py`, líneas 42–64 | El rombo `turno = 1` pasó a `if turno == 1` para identificar al rival y elegir su nave. La condición de acierto se tradujo a `eleccion != 0 and eleccion == nave_rival`, usando la última elección válida de DF2. Si el disparo acierta, `ganador = turno` guarda quién ganó. Los dos rombos finales pasaron a `if/elif/else` para anunciar al ganador o indicar que la partida continúa. En los mensajes usamos `str()` para unir el número de cada jugador con el texto. |
+| DF1 Partida completa (solo el menú) | `juego.py`, líneas <<completar>> | El Loop de RAPTOR (sale cuando `opcion = 3`) pasó a ser un `while opcion != 3`. La validación de la opción revisa el texto con `not in ("1", "2", "3")` antes de convertirlo con `int()`, para que una letra no haga caer el programa. El texto del menú se guardó en una variable para no repetirlo. Las opciones 1 y 2 por ahora solo muestran un mensaje; la partida completa se programa en la Fase 4. |
+| DF2 Validación de la jugada | `game_logic.py`, líneas 1-41 | El Loop de RAPTOR (sale cuando `entrada = 0`) pasó a ser un `while entrada != 0`. Se agregó `isdigit()` para que letras o decimales no hagan caer el programa (validación por formato), porque `input` devuelve texto. El lado «No» del rombo pasó a `elif entrada != 0` para que el 0 termine el bucle sin mostrar error. La concatenación con `+` pasó a f-strings. |
+| DF3 Fin de la partida | `game_logic.py`, líneas 43-68 | Ya no usa su propio estado de ejemplo: toma `turno`, las naves y `eleccion` de DF2. El rombo `turno = 1` pasó a `if/else` para identificar al rival y su nave. La condición de acierto se tradujo a `eleccion != 0 and eleccion == nave_rival`. Los dos rombos finales pasaron a un solo `if/elif/else`: gana el Jugador 1, gana el Jugador 2 o la partida continúa. Según el RF-11 no existe empate, así que ese caso queda en el `else`. |
 
 ## Video explicativo
 
-[Enlace al video] (máximo 5 minutos: el menú, la validación con una jugada inválida, el fin de la partida y cómo
-tradujimos un diagrama a código).
+<<Enlace al video>> (máximo 5 minutos: el menú, la validación con una jugada inválida, el fin de la partida y cómo tradujimos un diagrama a código).
 
 ## Licencia
 
-Este proyecto se distribuye bajo la licencia [MIT]. El texto completo está en el archivo `LICENSE`.
+Este proyecto se distribuye bajo la licencia MIT. El texto completo está en el archivo `LICENSE`.
 
 ## Declaración de autoría
 
-Declaramos que el código de este repositorio fue escrito por los integrantes del equipo, salvo los recursos
-citados en la sección «Créditos».
+Declaramos que el código de este repositorio fue escrito por los integrantes del equipo, salvo los recursos citados en la sección «Créditos».
 
 ## Créditos
 
 | Recurso (código, librería, imagen…) | Autor o fuente | Dónde se usa | Licencia |
 |---|---|---|---|
-| [...] | [...] | [...] | [...] |
+| Python 3 (sin librerías externas) | Python Software Foundation | Todo el código | PSF License |
+| RAPTOR | Martin C. Carlisle | Diagramas de la carpeta `diseno/` | Uso libre |
+
+No se usó código, imágenes ni librerías de terceros.
 
 ### Uso de IA
 
 | Herramienta | Para qué la usamos | Qué revisamos o cambiamos nosotros |
 |---|---|---|
-| Claude | Guía en redacción y construcción de código | Escritura del código fuente, designación de variables, pruebas de escritorio |
+| Claude (Anthropic) | Como tutor para guiar la traducción de DF2 a Python, revisar el código, armar los comentarios de RF de `game_logic.py` y los comentarios de `server.py` y `client.py`, y revisar este README. | Escribimos el código de `juego.py` y `game_logic.py`, elegimos los nombres de variables siguiendo los diagramas, hicimos las pruebas de escritorio y ejecutamos el código. Ajustamos los comentarios y el README a nuestra versión final. | 
 

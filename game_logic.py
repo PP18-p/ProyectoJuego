@@ -1,7 +1,9 @@
-# DF2_validacion.rap: DF2: RF-06, RF-07, RF-09 y RF-04
+# DF2_validacion.rap: DF2: RF-06, RF-07, RF-09 y RF-04 y DF3 Fin de la partida RF-08, RF-11
 # game_logic.py . Space Waze
-# Estado de ejemplo (Igual que en Raptor)
 
+# ---------- DF2: Validación de la jugada ----------
+
+# Estado de ejemplo (Igual que en Raptor)
 turno = 1
 nave_j1 = 2
 nave_j2 = 4
@@ -39,9 +41,11 @@ if eleccion == 0:
 else:
     print(f"Disparo del Jugador {turno} al espacio {eleccion}")
 
-# DF3 Fin de la partida · RF-08, RF-11
+# ---------- DF3: Fin de la partida ----------
+# Usa el estado que dejó DF2 (turno, nave_j1, nave_j2 y eleccion)
 ganador = 0
 
+# La variable turno define quién es el rival
 if turno == 1:
     nave_rival = nave_j2
     rival = 2
@@ -49,13 +53,14 @@ else:
     nave_rival = nave_j1
     rival = 1
 
+# RF-08: si el disparo coincide con la nave rival, el que acierta gana
 if eleccion != 0 and eleccion == nave_rival:
     print("¡Acierto! El Jugador " + str(turno) + " destruyó la nave del Jugador " + str(rival) + ".")
     ganador = turno
 else:
     print("Fallo: el disparo del Jugador " + str(turno) + " no dio en la nave del Jugador " + str(rival) + ".")
 
-# RF-08: decide el ganador · RF-11: no existe empate
+# RF-08: decide el ganador · RF-11: no existe empate, si nadie acierta la partida continúa
 if ganador == 1:
     print("Gana el Jugador 1. Fin del juego.")
 elif ganador == 2:
