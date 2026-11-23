@@ -38,3 +38,27 @@ if eleccion == 0:
     print("Tiempo agotado: pierdes el turno.")
 else:
     print(f"Disparo del Jugador {turno} al espacio {eleccion}")
+
+# DF3 Fin de la partida · RF-08, RF-11
+ganador = 0
+
+if turno == 1:
+    nave_rival = nave_j2
+    rival = 2
+else:
+    nave_rival = nave_j1
+    rival = 1
+
+if eleccion != 0 and eleccion == nave_rival:
+    print("¡Acierto! El Jugador " + str(turno) + " destruyó la nave del Jugador " + str(rival) + ".")
+    ganador = turno
+else:
+    print("Fallo: el disparo del Jugador " + str(turno) + " no dio en la nave del Jugador " + str(rival) + ".")
+
+# RF-08: decide el ganador · RF-11: no existe empate
+if ganador == 1:
+    print("Gana el Jugador 1. Fin del juego.")
+elif ganador == 2:
+    print("Gana el Jugador 2. Fin del juego.")
+else:
+    print("No hay empate en Space Waze: la partida continúa.")
