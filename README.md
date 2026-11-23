@@ -38,7 +38,7 @@ python game_logic.py     (validación de la jugada y fin de la partida)
 |---|---|---|
 | DF1 Partida completa (solo el menú) | [`juego.py`, líneas …] | [...] |
 | DF2 Validación de la jugada | game_logic.py, líneas 1-40 | El Loop de RAPTOR (sale cuando entrada = 0) pasó a ser un while entrada != 0. Se agregó isdigit() para que letras o decimales no hagan caer el programa (validación por formato), porque input devuelve texto. La concatenación con + pasó a f-strings. |
-| DF3 Fin de la partida | [`game_logic.py`, líneas …] | [...] |
+| DF3 Fin de la partida | `game_logic.py`, líneas 42–64 | El rombo `turno = 1` pasó a `if turno == 1` para identificar al rival y elegir su nave. La condición de acierto se tradujo a `eleccion != 0 and eleccion == nave_rival`, usando la última elección válida de DF2. Si el disparo acierta, `ganador = turno` guarda quién ganó. Los dos rombos finales pasaron a `if/elif/else` para anunciar al ganador o indicar que la partida continúa. En los mensajes usamos `str()` para unir el número de cada jugador con el texto. |
 
 ## Video explicativo
 
