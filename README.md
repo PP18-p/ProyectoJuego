@@ -39,7 +39,7 @@ python game_logic.py     (validación de la jugada y fin de la partida)
 
 ## Video explicativo
 
-<<Enlace al video>> (máximo 5 minutos: el menú, la validación con una jugada inválida, el fin de la partida y cómo tradujimos un diagrama a código).
+(https://drive.google.com/file/d/1wq2PpJRVtc6BEGAtDl3wDdVhbjhv1FDw/view?usp=sharing)
 
 ## Licencia
 
@@ -47,7 +47,9 @@ Este proyecto se distribuye bajo la licencia MIT. El texto completo está en el 
 
 ## Declaración de autoría
 
-Declaramos que el código de este repositorio fue escrito por los integrantes del equipo, salvo los recursos citados en la sección «Créditos».
+## Declaración de autoría
+
+Declaramos que el código de este repositorio (`juego.py`, `game_logic.py`, `server.py` y `client.py`) y los diagramas de la carpeta `diseno/` fueron hechos por los integrantes del Equipo Nova: Jhair Celi, José Paredes y Dennis Toapanta. Usamos una herramienta de IA como apoyo, como se detalla en la sección «Uso de IA»: revisamos todo lo que nos sugirió, lo ajustamos a nuestro diseño de la Fase 2 y ejecutamos el código para comprobar que funciona. Los recursos de terceros que usamos están citados en la sección «Créditos».
 
 ## Créditos
 
@@ -62,5 +64,4 @@ No se usó código, imágenes ni librerías de terceros.
 
 | Herramienta | Para qué la usamos | Qué revisamos o cambiamos nosotros |
 |---|---|---|
-| Claude (Anthropic) | Como tutor para guiar la traducción de DF2 a Python, revisar el código, armar los comentarios de RF de `game_logic.py` y `juego.py` y los comentarios de `server.py`, `client.py` y revisar este README. | Escribimos el código de `juego.py` y `game_logic.py`, elegimos los nombres de variables siguiendo los diagramas, hicimos las pruebas de escritorio y ejecutamos el código. Ajustamos los comentarios y el README a nuestra versión final. | 
-
+| Claude (Anthropic) | Como tutor para guiar la traducción de DF2 a Python, revisar el código, armar los comentarios de RF de `juego.py` y `game_logic.py` y los comentarios de `server.py` y `client.py`, revisar este README y editar el video (unir las partes, intro, cierre, transiciones y nivel de audio). | Escribimos el código de `juego.py` y `game_logic.py`, elegimos los nombres de variables siguiendo los diagramas, hicimos las pruebas de escritorio y ejecutamos el código. Grabamos las explicaciones del video. Ajustamos los comentarios y el README a nuestra versión final. |
