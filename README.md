@@ -1,4 +1,4 @@
-# Space Waze
+# SPACEWAZE
 
 Proyecto integrador de primer nivel · Lógica de Programación · UIDE · Paralelo C
 
